@@ -28,37 +28,34 @@ const playfairDisplay = Playfair_Display({
 });
 
 export default function Home() {
-  const [isScrolledDown, setIsScrolledDown] = useState(false);
+  const [isScrolledUp, setIsScrolledUP] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [showLoadingScreen, setShowLoadingScreen] = useState(true);
   const [imagesLoaded, setImagesLoaded] = useState(0);
   const [startTime, setStartTime] = useState(Date.now());
+  const [isInHeroSection, setIsInHeroSection] = useState(true);
 
   // Handle scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const heroSectionHeight = window.innerHeight;
+      const heroSectionHeight = window.innerHeight-200;
+      setIsInHeroSection(currentScrollY <= heroSectionHeight);
 
-      if (currentScrollY <= 50) {
-        // At the top: always visible, transparent background
-        setIsScrolledDown(false);
+      if (currentScrollY <= heroSectionHeight) {
+        // Still in hero section: always visible
         setIsVisible(true);
+        setIsScrolledUP(false);
       } else if (currentScrollY > lastScrollY) {
-        // Scrolling down
-        setIsScrolledDown(true);
-        setIsVisible(true);
+        // Scrolling down after hero: hide navbar
+        setIsVisible(false);
+        setIsScrolledUP(false);
       } else if (currentScrollY < lastScrollY) {
-        // Scrolling up
-        if (currentScrollY <= heroSectionHeight) {
-          // Within hero section: keep visible
-          setIsVisible(true);
-        } else {
-          // Outside hero section: hide completely
-          setIsVisible(false);
-        }
+        // Scrolling up after hero: show navbar
+        setIsVisible(true);
+        setIsScrolledUP(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -99,8 +96,10 @@ export default function Home() {
 
       {/* Header */}
       <motion.header
-        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-          isScrolledDown ? 'backdrop-blur-lg bg-white/100 text-black shadow-md' : 'bg-transparent text-white'
+        className={`fixed top-0 w-full z-50 transition-all duration-800 ${
+          (isInHeroSection && lastScrollY > 0) || isScrolledUp || !isVisible
+          ? 'backdrop-blur-lg bg-white/100 text-black shadow-md'
+          : 'bg-transparent text-white'
         }`}
         initial={{ y: 0 }}
         animate={{ y: isVisible ? 0 : '-100%' }}
@@ -146,7 +145,7 @@ export default function Home() {
           />
         </div>
         <div
-          className={`flex flex-col items-start justify-center text-left relative z-5 px-4 transform sm:-translate-x-55 sm:-translate-y-5 -translate-x-10 -translate-y-0 ${playfairDisplay.className}`}
+          className={`flex flex-col items-start justify-center text-left relative z-5 px-4 transform sm:-translate-x-55 sm:-translate-y-0 -translate-x-10 -translate-y-0 ${playfairDisplay.className}`}
         >
           <h1 className="text-5xl md:text-7xl mb-6 transform text-white">
             Timeless <em className="italic">Dream</em> <br /> Aboard the 48 FLY
