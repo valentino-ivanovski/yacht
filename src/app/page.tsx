@@ -91,12 +91,12 @@ export default function Home() {
         }}
         style={{ display: showLoadingScreen ? 'flex' : 'none' }}
       >
-        <h1 className={`text-5xl text-black ${playfairDisplaySC.className}`}>Yacht Moments</h1>
+        <h1 className={`text-5xl text-black ${playfairDisplaySC.className}`}>Yacht Moment</h1>
       </motion.div>
 
       {/* Header */}
       <motion.header
-        className={`fixed top-0 w-full z-50 transition-all duration-800 ${
+        className={`fixed top-0 w-full z-100 transition-all duration-500 ${
           (isInHeroSection && lastScrollY > 0) || isScrolledUp || !isVisible
           ? 'backdrop-blur-lg bg-white/100 text-black shadow-md'
           : 'bg-transparent text-white'
@@ -107,14 +107,14 @@ export default function Home() {
       >
         <nav className="flex flex-col items-center justify-center gap-4 py-6">
           <Link href="#about" className={`flex flex-col items-center justify-center ${playfairDisplaySC.className}`}>
-            <p className="text-3xl">Yacht Moments</p>
-            <p className="text-md">Yacht rental</p>
+            <p className="text-2xl sm:text-4xl">Yacht Moment</p>
+            <p className="text-sm sm:text-md">-ADRIATIC YACHT CHARTER-</p>
           </Link>
-          <div id="threeItems" className={`flex justify-center text-md items-center gap-12 ${playfair.className} text-lg`}>
-            <Link href="#about">Services</Link>
-            <Link href="#yacht">The 48 FLY</Link>
-            <Link href="#contact">Contact</Link>
-          </div>
+          <div id="threeItems" className={`flex justify-center text-md items-center gap-8 sm:gap-12 ${playfair.className} text-lg`}>
+          <Link href="#about" className="relative inline-block group" onClick={(e) => {e.preventDefault(); const target = document.querySelector('#about'); if (target) target.scrollIntoView({ behavior: 'smooth' });}}>Services</Link>
+          <Link href="#yacht" className="relative inline-block group" onClick={(e) => {e.preventDefault(); const target = document.querySelector('#yacht'); if (target) target.scrollIntoView({ behavior: 'smooth' });}}>GreenLine 48 Fly</Link>
+          <Link href="#contact" className="relative inline-block group" onClick={(e) => {e.preventDefault(); const target = document.querySelector('#contact'); if (target) target.scrollIntoView({ behavior: 'smooth' });}}>Contact</Link>
+        </div>
         </nav>
       </motion.header>
 
@@ -133,7 +133,7 @@ export default function Home() {
             onLoad={handleImageLoad}
           />
           <Image
-            src="/images/yacht.png?v=4"
+            src="/images/yachtt.png?v=2"
             alt="Main Page Overlay"
             fill
             style={{ objectFit: 'cover', objectPosition: 'bottom' }}
@@ -145,36 +145,41 @@ export default function Home() {
           />
         </div>
         <div
-          className={`flex flex-col items-start justify-center text-left relative z-5 px-4 transform sm:-translate-x-55 sm:-translate-y-0 -translate-x-10 -translate-y-0 ${playfairDisplay.className}`}
+          className={`flex flex-col items-center sm:items-start justify-center sm:text-left text-center relative sm:z-5 z-50 px-4 transform lg:-translate-x-45 lg:-translate-y-0 sm:-translate-x-0 sm:-translate-y-0 md:-translate-x-0 md:-translate-y-0 xl:-translate-x-80 xl:-translate-y-0 ${playfairDisplay.className}`}
         >
-          <h1 className="text-5xl md:text-7xl mb-6 transform text-white">
-            Timeless <em className="italic">Dream</em> <br /> Aboard the 48 FLY
+          <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 transform text-white">
+            Timeless <em className="italic">Dream</em> on <br />the GreenLine 48 Fly
           </h1>
           <p className={`text-xl md:text-2xl mb-8 max-w-2xl text-white ${playfair.className}`}>
-            Experience unparalleled elegance with Yacht Moments, where sophistication meets the sea.
+            Experience unparalleled elegance with Yacht Moment, where sophistication meets the sea.
           </p>
-          <Link
+            <Link
             href="#contact"
-            className="text-white z-30 px-6 py-3 backdrop-blur-lg hover:bg-white/10 cursor-pointer text-lg border-1 border-white rounded-sm transition-all duration-300"
-          >
+            className="text-white z-30 px-6 py-3 backdrop-blur-sm hover:bg-white/10 cursor-pointer text-lg border-2 border-white rounded-sm transition-all duration-300"
+            onClick={(e) => {
+              e.preventDefault();
+              const target = document.querySelector('#contact');
+              if (target) target.scrollIntoView({ behavior: 'smooth' });
+            }}
+            >
             Reserve Your Journey
-          </Link>
+            </Link>
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Yacht Moments</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Yacht Moment</h2>
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2">
             <p className="text-lg leading-relaxed">
-              Inspired by the timeless elegance of old-world luxury, Yacht Moments offers an exclusive escape aboard our meticulously crafted 48 FLY. Our heritage is rooted in sophistication, delivering bespoke experiences that echo the grandeur of a bygone era.
+              Inspired by the timeless elegance of old-world luxury, Yacht Moment offers an exclusive escape aboard our meticulously crafted 48 FLY. Our heritage is rooted in sophistication, delivering bespoke experiences that echo the grandeur of a bygone era.
             </p>
           </div>
           <div className="md:w-1/2">
             <Image
               src="/yacht-deck.jpg"
-              alt="Yacht Moments Deck"
+              alt="Yacht Moment Deck"
               width={600}
               height={400}
               className="rounded-lg shadow-lg"
@@ -251,7 +256,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-navy text-cream py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-lg">Yacht Moments © {new Date().getFullYear()}</p>
+          <p className="text-lg">Yacht Moment © {new Date().getFullYear()}</p>
           <p className="mt-2">Experience the Art of Luxury Yachting</p>
         </div>
       </footer>

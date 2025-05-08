@@ -3,3 +3,22 @@
 body {
   background-color: #00192B;
 }
+
+/* Add this to your global CSS or within your component's tailwind config */
+.group:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.group::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor; /* Same color as text */
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
