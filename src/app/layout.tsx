@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import { Playfair } from 'next/font/google'
+import { Inter } from 'next/font/google'
  
-const playfair = Playfair({
+const inter = Inter({
   weight: '400',
   subsets: ['latin'],
 })
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.className} ${playfair.className} antialiased`}
+        className={`${inter.className} ${inter.className} antialiased`}
       >
         {children}
       </body>
