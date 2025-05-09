@@ -10,8 +10,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Yacht Moment",
-  description: "Yacht renting website.",
+  title: "Yacht Moment - Greenline 48 Flybridge Charter",
+  description: "Discover the Greenline 48 Flybridge - luxury, hybrid innovation, and comfort combined in Greenline's premier Adriatic yacht charter experience.",
 };
 
 export default function RootLayout({
