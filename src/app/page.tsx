@@ -95,7 +95,7 @@ export default function Home() {
     <div className="min-h-screen text-white">
       {/* Loading Screen */}
       <motion.div
-        className="fixed inset-0 bg-white flex items-center text-center mx-auto justify-center z-[100]"
+        className="fixed inset-0 bg-white flex items-center text-center mx-auto justify-center z-[200]"
         initial={{ opacity: 1 }}
         animate={{ opacity: isLoading ? 1 : 0 }}
         transition={{ duration: 1 }}
@@ -104,7 +104,7 @@ export default function Home() {
         }}
         style={{ display: showLoadingScreen ? 'flex' : 'none' }}
       >
-        <h1 className={`text-5xl text-black ${playfairDisplaySC.className}`}>Yacht Moment</h1>
+        <h1 className={`text-3xl sm:text-5xl text-black ${playfairDisplaySC.className}`}>Yacht Moment</h1>
       </motion.div>
 
       {/* Header */}
@@ -149,7 +149,7 @@ export default function Home() {
         <div
           className={`flex flex-col items-center sm:items-start justify-center sm:text-left text-center relative sm:z-5 z-50 px-4 transform lg:-translate-x-45 lg:-translate-y-0 sm:-translate-x-0 sm:-translate-y-0 md:-translate-x-0 md:-translate-y-0 xl:-translate-x-80 xl:-translate-y-0 ${playfairDisplay.className}`}
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 transform text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 transform text-white">
             Timeless <em className="italic">Dream</em> on <br />the Greenline 48 Fly
           </h1>
           <p className={`text-xl md:text-2xl mb-8 max-w-2xl text-white ${playfair.className}`}>
@@ -239,7 +239,7 @@ export default function Home() {
                 href="https://www.greenlinehybrid.com/en/yacht/greenline-48-fly"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-white border px-6 py-3 border-white rounded-sm hover:bg-white hover:text-black transition-color duration-300 text-lg ${playfairDisplay.className}`}>
+                className={`text-white border px-6 py-3 border-white rounded-sm hover:bg-white cursor-pointer hover:text-black transition-color duration-300 text-lg ${playfairDisplay.className}`}>
                 Learn More About the 48 Fly
                 </Link>
             </div>

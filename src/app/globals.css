@@ -2,6 +2,10 @@
 
 body {
   background-color: #00192B;
+  height: 100vh;
+  @supports (height: 100svh) {
+  height: 100svh;
+}
 }
 
 /* Add this to your global CSS or within your component's tailwind config */
