@@ -95,7 +95,7 @@ export default function Home() {
     <div className="min-h-screen text-white">
       {/* Loading Screen */}
       <motion.div
-        className="fixed inset-0 bg-white flex items-center justify-center z-[100]"
+        className="fixed inset-0 bg-white flex items-center text-center mx-auto justify-center z-[100]"
         initial={{ opacity: 1 }}
         animate={{ opacity: isLoading ? 1 : 0 }}
         transition={{ duration: 1 }}
