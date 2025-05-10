@@ -142,7 +142,6 @@ const Slideshow: React.FC = () => {
         <div
           id="yacht"
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-[110]"
-          onClick={() => setIsExpanded(false)}
           ref={expandedImageRef}
           tabIndex={0}
         >
