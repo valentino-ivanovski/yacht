@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -38,8 +39,8 @@ export const metadata: Metadata = {
     images: ["https://i.imgur.com/FREPuvc.jpeg"],
   },
   icons: {
-    icon: "svgs/icon.ico",
-    apple: "svgs/appleicon.png",
+    icon: "/svgs/icon.ico",
+    apple: "/svgs/appleicon.png",
   },
 };
 
@@ -50,6 +51,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="/images/svgs/icon.ico" />
+        <link rel="apple-touch-icon" href="/images/svgs/appleicon.png" />
+      </Head>
       <body
         className={`${inter.className} ${inter.className} antialiased`}
       >
