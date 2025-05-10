@@ -58,14 +58,19 @@ const Slideshow: React.FC = () => {
     if (isExpanded) {
       document.addEventListener('keydown', handleKeyDown);
       expandedImageRef.current?.focus();
+      document.body.style.overflow = 'hidden';
     } else {
       document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
     }
-    return () => document.removeEventListener('keydown', handleKeyDown);
+        return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
   }, [isExpanded, currentIndex]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto pb-10">
+    <div className="relative w-full  max-w-4xl mx-auto pb-10">
       {/* Main Slideshow */}
       <div className="relative h-96 overflow-hidden rounded-lg shadow-lg">
         <AnimatePresence initial={false} custom={direction} mode="wait">
@@ -131,14 +136,7 @@ const Slideshow: React.FC = () => {
       <div className={`text-center mt-4 text-white ${playfair.className}`}>
         {currentIndex + 1}/13
       </div>
-      {/* Disable scrolling when expanded */}
-      {isExpanded && (
-        <style jsx global>{`
-          body {
-        overflow: hidden;
-          }
-        `}</style>
-      )}
+
       {/* Expanded Image Modal */}
       {isExpanded && (
         <div
@@ -148,81 +146,68 @@ const Slideshow: React.FC = () => {
           ref={expandedImageRef}
           tabIndex={0}
         >
-          <div
-            className="relative max-w-4xl w-full h-[80vh] flex flex-col items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              initial={{ opacity: 0, x: direction > 0 ? 40 : -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="relative max-w-4xl w-full h-[80vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={images[currentIndex].src}
+                alt={images[currentIndex].alt}
+                fill
+                className="object-contain"
+                onClick={() => setIsExpanded(false)}
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Left Arrow in Expanded */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              goToIndex(currentIndex - 1);
+            }}
+            className={`p-2 rounded-full cursor-pointer transition-colors duration-200 ${playfair.className} bg-white/50 text-black hover:bg-white/60 absolute top-1/2 left-4 transform -translate-y-1/2 z-[110]`}
           >
-            <AnimatePresence initial={false} custom={direction} mode="wait">
-              <motion.div
-                key={currentIndex}
-                custom={direction}
-                initial={{ opacity: 0, x: direction > 0 ? 40 : -40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-                className="relative w-full h-full"
-              >
-                <Image
-                  src={images[currentIndex].src}
-                  alt={images[currentIndex].alt}
-                  fill
-                  className="object-contain"
-                />
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Close Button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsExpanded(false);
-              }}
-              className={`text-white border px-4 cursor-pointer py-2 border-white rounded-sm hover:bg-white hover:text-black transition-color duration-300 text-lg ${playfair.className}`}>
-              Close
-            </button>
-
-            {/* Left Arrow in Expanded */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                goToIndex(currentIndex - 1);
-              }}
-              className={`p-2 rounded-full cursor-pointer transition-colors duration-200 ${playfair.className} bg-white/50 text-black hover:bg-white/60 absolute top-1/3 left-4 transform -translate-y-1/2 z-[120]`}
+            <svg
+              width="23"
+              height="23"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <svg
-                width="23"
-                height="23"
-                fill="none"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M14 18l-6-6 6-6" />
-              </svg>
-            </button>
+              <path d="M14 18l-6-6 6-6" />
+            </svg>
+          </button>
 
-            {/* Right Arrow in Expanded */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                goToIndex(currentIndex + 1);
-              }}
-              className={`p-2 rounded-full cursor-pointer transition-colors duration-200 ${playfair.className} bg-white/50 text-black hover:bg-white/60 absolute top-1/3 right-4 transform -translate-y-1/2 z-[120]`}
+          {/* Right Arrow in Expanded */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              goToIndex(currentIndex + 1);
+            }}
+            className={`p-2 rounded-full cursor-pointer transition-colors duration-200 ${playfair.className} bg-white/50 text-black hover:bg-white/60 absolute top-1/2 right-4 transform -translate-y-1/2 z-[110]`}
+          >
+            <svg
+              width="23"
+              height="23"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <svg
-                width="23"
-                height="23"
-                fill="none"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M9 18l6-6-6-6" />
-              </svg>
-            </button>
-          </div>
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
         </div>
       )}
     </div>
