@@ -10,7 +10,9 @@ import Blueprint from "@/app/components/blueprint";
 import Tables from "@/app/components/tables";
 import Slideshow from "@/app/components/slideshow";
 import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
-import { FacebookIcon, InstagramIcon } from 'lucide-react';
+import { FaGithub } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 const playfairDisplaySC = Playfair_Display_SC({
   subsets: ['latin'],
@@ -486,17 +488,28 @@ export default function Home() {
                 © {new Date().getFullYear()} Yacht Moment. All rights reserved.
               </p>
               <div className="flex space-x-6">
-                <Link href="#" aria-label="Instagram">
-                  <InstagramIcon className="w-5 h-5 hover:text-white transition-colors" />
-                </Link>
                 <Link href="#" aria-label="Facebook">
-                  <FacebookIcon className="w-5 h-5 hover:text-white transition-colors" />
+                  <FaFacebook className="w-5 h-5 hover:text-white transition-colors" />
+                </Link>
+                <Link href="#" aria-label="Instagram">
+                  <FaInstagram className="w-5 h-5 hover:text-white transition-colors" />
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </footer>
+    <div className="bg-gray-100 flex items-center justify-center border-gray-200 py-3 text-center text-sm">
+        <a
+          href="https://github.com/valentino-ivanovski"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center text-gray-700 hover:text-black transition"
+        >
+          <FaGithub className="mr-2" />
+          Made by Valentino Ivanovski
+        </a>
+      </div>
     </div>
   );
 }
