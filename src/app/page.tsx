@@ -457,10 +457,10 @@ export default function Home() {
                     <span>+386 40 123 456</span>
                   </p>
                   <p></p>
-                  <p className="flex items-center gap-3">
+                    <p className="flex items-center gap-3">
                     <EnvelopeIcon className="h-5 w-5 text-black" />
-                    <span>info@yachtmoment.com</span>
-                  </p>
+                    <a href="mailto:info@yachtmoment.com" className="underline hover:underline">info@yachtmoment.com</a>
+                    </p>
                 </div>
               </div>
             </div>
