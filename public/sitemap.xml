@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.sitemaps.org/schemas/sitemap-image/1.1">
+  <!-- Homepage -->
+  <url>
+    <loc>https://yachtmoment.com/</loc>
+    <lastmod>2025-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/mainpage.webp</image:loc>
+      <image:title>Main Page Background of Yacht Moment</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://imgur.com/FREPuvc</image:loc>
+      <image:title>Greenline 48 Flybridge in the Adriatic Sea</image:title>
+    </image:image>
+  </url>
+
+  <!-- Yacht Section -->
+  <url>
+    <loc>https://yachtmoment.com/#yacht</loc>
+    <lastmod>2025-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/1.webp</image:loc>
+      <image:title>Slideshow Image 1 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/2.webp</image:loc>
+      <image:title>Slideshow Image 2 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/3.webp</image:loc>
+      <image:title>Slideshow Image 3 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/4.webp</image:loc>
+      <image:title>Slideshow Image 4 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/5.webp</image:loc>
+      <image:title>Slideshow Image 5 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/6.webp</image:loc>
+      <image:title>Slideshow Image 6 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/7.webp</image:loc>
+      <image:title>Slideshow Image 7 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/8.webp</image:loc>
+      <image:title>Slideshow Image 8 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/9.webp</image:loc>
+      <image:title>Slideshow Image 9 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/10.webp</image:loc>
+      <image:title>Slideshow Image 10 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/11.webp</image:loc>
+      <image:title>Slideshow Image 11 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/12.webp</image:loc>
+      <image:title>Slideshow Image 12 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/images/slideshow/13.webp</image:loc>
+      <image:title>Slideshow Image 13 of Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/svgs/1.svg</image:loc>
+      <image:title>Diesel Drive Icon for Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/svgs/2.svg</image:loc>
+      <image:title>Hybrid Drive Icon for Greenline 48 Fly</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yachtmoment.com/svgs/3.svg</image:loc>
+      <image:title>Electric Drive Icon for Greenline 48 Fly</image:title>
+    </image:image>
+  </url>
+
+  <!-- Services Section -->
+  <url>
+    <loc>https://yachtmoment.com/#services</loc>
+    <lastmod>2025-05-10</lastmod>
+    <changefreq>weekly</changefreq> <!-- More frequent updates due to pricing -->
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://yachtmoment.com/#contact</loc>
+    <lastmod>2025-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- External Reference: Greenline 48 Fly Page -->
+  <url>
+    <loc>https://www.greenlinehybrid.com/en/yacht/greenline-48-fly</loc>
+    <lastmod>2025-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>

@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/       # Block admin pages (if any)
+Disallow: /private/     # Block private folders (if any)
+Disallow: /svgs/        # Block SVG icons unless needed for SEO
+Allow: /
+
+Sitemap: https://yachtmoment.com/sitemap.xml
