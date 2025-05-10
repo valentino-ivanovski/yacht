@@ -12,32 +12,6 @@ import Slideshow from "@/app/components/slideshow";
 import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import { FacebookIcon, InstagramIcon } from 'lucide-react';
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  const form = e.target as HTMLFormElement;
-  const formData = new FormData(form);
-
-  try {
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(Object.fromEntries(formData)),
-    });
-
-    if (response.ok) {
-      alert('Message sent successfully!');
-      form.reset();
-    } else {
-      throw new Error('Failed to send message');
-    }
-  } catch (error) {
-    alert('Error sending message. Please try again later.');
-    console.error(error);
-  }
-};
-
 const playfairDisplaySC = Playfair_Display_SC({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -135,7 +109,7 @@ export default function Home() {
 
       {/* Header */}
       <motion.header
-        className={`fixed hidden top-0 w-full z-100 transition-all duration-500 ${
+        className={`fixed top-0 w-full z-100 transition-all duration-500 ${
           (isInHeroSection && lastScrollY > 0) || isScrolledUp || !isVisible
           ? 'backdrop-blur-lg bg-white/100 text-black shadow-md'
           : 'bg-transparent text-white'
@@ -429,7 +403,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className}`}>Name</label>
