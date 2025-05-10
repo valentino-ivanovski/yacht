@@ -184,17 +184,20 @@ export default function Home() {
         )}
       </section>
 
-      {/* Yacht Section */}
-      <section id="yacht" className="py-20 bg-navy text-cream">
-        <div className="w-1/2 h-px absolute -my-11 bg-gray-300 opacity-40 left-1/2 transform -translate-x-1/2"></div>
-        
+      {/* Small About Section */}
+      <section className='pt-25'>
+                <div className="w-1/3 h-px absolute -my-11 bg-gray-300 opacity-40 left-1/2 transform -translate-x-1/2"></div>
         <div className='flex items-center mb-3 mx-auto max-w-7xl justify-center'>
           <p className={`text-xl leading-relaxed italic w-9/10 sm:w-1/2 text-center mb-8 ${playfair.className}`}>
           Yacht Moment is a premier luxury yacht charter service offering a one-of-a-kind experience along the Adriatic coast. We specialize in providing bespoke journeys aboard the <Link href="#yacht" onClick={(e) => { e.preventDefault(); const target = document.querySelector('#yacht'); if (target) target.scrollIntoView({ behavior: 'smooth' }); }}>Greenline 48 FLY</Link>, a state-of-the-art yacht that combines luxury, comfort, and sustainability.
           </p>
         </div>
-        <div className="w-1/2 h-px absolute bg-gray-300 opacity-40 left-1/2 transform -translate-x-1/2"></div>
-            <div className="max-w-7xl pt-15 mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-1/3 h-px absolute bg-gray-300 opacity-40 left-1/2 transform -translate-x-1/2"></div>
+      </section>
+
+      {/* Yacht Section */}
+      <section id="yacht" className="py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/*title*/}
             <h3 className={`text-3xl md:text-4xl transform -translate-x-1 translate-y-2 font-medium text-center ${windSong.className}`}>The Greenline</h3>
             <h2 className={`text-6xl md:text-7xl font-bold text-center mb-8 ${playfairDisplay.className}`}>∙ 48 FLY ∙</h2>
