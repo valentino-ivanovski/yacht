@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Yacht Moment",
     images: [
       {
-        url: "https://imgur.com/FREPuvc",
+        url: "https://i.imgur.com/FREPuvc.jpeg",
         width: 1224,
         height: 672,
         alt: "Greenline 48 Flybridge in the Adriatic Sea",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Yacht Moment - Greenline 48 Flybridge Charter",
     description:
       "Discover the Greenline 48 Flybridge - luxury, hybrid innovation, and comfort combined in Greenline's premier Adriatic yacht charter experience.",
-    images: ["https://imgur.com/FREPuvc"],
+    images: ["https://i.imgur.com/FREPuvc.jpeg"],
   },
   icons: {
     icon: "svgs/icon.ico",
