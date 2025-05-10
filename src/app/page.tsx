@@ -84,7 +84,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (imagesLoaded >= 2) {
+    if (imagesLoaded >= 1) {
       const elapsedTime = Date.now() - startTime;
       const remainingTime = Math.max(1000 - elapsedTime, 0); // Ensure at least 1 second
       setTimeout(() => setIsLoading(false), remainingTime + 500); // Add 500ms delay
@@ -135,7 +135,7 @@ export default function Home() {
       <section className="relative h-screen w-full flex justify-center items-center overflow-hidden">
         <div className="absolute inset-0 transform">
           <Image
-            src="/images/mainpage.png"
+            src="/images/mainpage.webp"
             alt="Main Page Background"
             fill
             style={{ objectFit: 'cover', objectPosition: 'bottom', transform : 'translateY(0%)' }}
@@ -143,17 +143,6 @@ export default function Home() {
             quality={100}
             sizes="100vw"
             className="z-0"
-            onLoad={handleImageLoad}
-          />
-          <Image
-            src="/images/yachtt.png?v=2"
-            alt="Main Page Overlay"
-            fill
-            style={{ objectFit: 'cover', objectPosition: 'bottom' }}
-            priority
-            quality={100}
-            sizes="100vw"
-            className="z-10 pointer-events-none"
             onLoad={handleImageLoad}
           />
         </div>
