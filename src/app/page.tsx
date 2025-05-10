@@ -119,7 +119,7 @@ export default function Home() {
         transition={{ duration: 0.1 }}
       >
         <nav className="flex flex-col h-40 items-center justify-center gap-4 py-6">
-          <Link href="#services" className={`flex flex-col items-center justify-center ${playfairDisplaySC.className}`}>
+          <Link href="#hero" className={`flex flex-col items-center justify-center ${playfairDisplaySC.className}`}>
             <p className="text-3xl sm:text-4xl">Yacht Moment</p>
             <p className="text-sm sm:text-lg">-ADRIATIC YACHT CHARTER-</p>
           </Link>
@@ -132,7 +132,7 @@ export default function Home() {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="relative h-screen w-full flex justify-center items-center overflow-hidden">
+      <section className="hero relative h-screen w-full flex justify-center items-center overflow-hidden">
         <div className="absolute inset-0 transform">
           <Image
             src="/images/mainpage.webp"
