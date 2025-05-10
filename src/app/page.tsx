@@ -168,7 +168,7 @@ export default function Home() {
           </p>
           <Link
             href="#contact"
-            className="text-white z-30 px-4 py-2 backdrop-blur-sm hover:bg-white/30 cursor-pointer text-lg border border-white rounded-sm transition-all duration-300"
+            className="text-white z-30 px-4 py-2 backdrop-blur-sm hover:bg-white hover:text-black cursor-pointer text-lg border border-white rounded-sm transition-all duration-300"
             onClick={(e) => {
               e.preventDefault();
               const target = document.querySelector('#contact');
@@ -208,7 +208,7 @@ export default function Home() {
             <Blueprint />
             </div>
             <div className='py-0'>
-            <div className="flex justify-center items-center gap-8">
+            <div className="flex flex-row justify-center items-center gap-3 sm:gap-8">
               <Image
               src="/svgs/1.svg"
               alt="SVG 1"
@@ -239,9 +239,8 @@ export default function Home() {
                 href="https://www.greenlinehybrid.com/en/yacht/greenline-48-fly"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-2xl text-white border px-3 hover:bg-white/20 transition-color duration-300 py-1 rounded-sm ${playfair.className}`}
-                >
-                Learn More about the Greenline 48 Fly
+                className={`text-white border px-6 py-3 border-white rounded-sm hover:bg-white hover:text-black transition-color duration-300 text-lg ${playfairDisplay.className}`}>
+                Learn More About the 48 Fly
                 </Link>
             </div>
           </div>
@@ -351,7 +350,7 @@ export default function Home() {
           <div className="text-center mt-16">
             <div className={`mb-2 transform -translate-y-8 max-w-2xl mx-auto text-cream ${playfair.className}`}>
               <p className="text-lg">All charters include:</p>
-              <div className="flex justify-center gap-8 mt-4 text-md">
+              <div className="flex flex-row justify-center gap-4 sm:gap-8 mt-4 text-md">
                 <span className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -378,7 +377,7 @@ export default function Home() {
             
             <Link
               href="#contact"
-              className={`inline-block px-6 py-3 border border-white text-white rounded-sm hover:bg-white/20 transition-all duration-300 text-lg ${playfairDisplay.className}`}
+              className={`inline-block px-6 py-3 border border-white text-white rounded-sm hover:bg-white hover:text-black transition-all duration-300 text-lg ${playfairDisplay.className}`}
               onClick={(e) => {
                 e.preventDefault();
                 const target = document.querySelector('#contact');
@@ -392,120 +391,76 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 text-navy">
-        <div className="w-1/2 h-px absolute -my-18 bg-gray-300 opacity-40 left-1/2 transform -translate-x-1/2"></div>
+      <section id="contact" className="pb-15 pt-15 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className={`text-5xl md:text-6xl font-bold mb-4 ${playfairDisplay.className}`}>Contact Us</h2>
-            <p className={`text-xl ${playfair.className} italic max-w-2xl mx-auto`}>
+          <div className="text-center mb-12">
+            <h2 className={`text-5xl md:text-6xl font-bold mb-4 ${playfairDisplay.className} text-black`}>Contact Us</h2>
+            <p className={`text-xl ${playfair.className} italic max-w-2xl mx-auto text-black`}>
               Ready to embark on your luxury journey? Our team is standing by to craft your perfect yachting experience.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className}`}>Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:border-navy focus:ring-1 focus:ring-navy outline-none transition-all"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className}`}>Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:border-navy focus:ring-1 focus:ring-navy outline-none transition-all"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
-              
-              <div className="relative">
-                <label htmlFor="service" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className}`}>Service Interest</label>
-                <div className="relative">
-                  <select
-                    id="service"
-                    name="service"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:border-navy focus:ring-1 focus:ring-navy outline-none appearance-none"
-                    required
-                  >
-                    <option value="">Select a service</option>
-                    <option value="charter">Luxury Custom Adriatic Charter</option>
-                    <option value="transfers">Luxury A to B Transfers</option>
-                    <option value="jet">Luxury Jet to Port Journeys</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
-                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                    </svg>
+          <div className="bg-white rounded-2xl shadow-xl transform -translate-y-5 p-5 max-w-xl mx-auto">
+            <div className="flex flex-col items-center">
+              <form className="space-y-6 w-full max-w-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full px-4 py-3 border border-black/50 rounded-md text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all"
+                      placeholder="Name and Surname"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-3 border border-black/50 rounded-md text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all"
+                      placeholder="your@email.com"
+                    />
                   </div>
                 </div>
-              </div>
-              
-              <div>
-                <label htmlFor="message" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className}`}>Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:border-navy focus:ring-1 focus:ring-navy outline-none transition-all"
-                  placeholder="Tell us about your desired journey..."
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                className={`w-full cursor-pointer px-6 py-4 rounded-sm text-white border hover:bg-white/30 transition-colors duration-300 ${playfairDisplay.className} text-lg`}>
-                Send Message
-              </button>
-            </form>
 
-            <div className="flex flex-col justify-center items-center lg:items-start lg:pl-12">
-              <div className={`${playfair.className} space-y-8 max-w-md w-full`}>
-                <div className="text-center lg:text-left">
-                  <h3 className={`text-xl font-medium mb-6 ${playfairDisplaySC.className}`}>Contact Information</h3>
-                  <div className="space-y-4">
-                    <p className="flex items-center justify-center lg:justify-start gap-3">
-                        <PhoneIcon className="h-5 w-5" />
-                      <span>+386 40 123 456</span>
-                    </p>
-                    <p className="flex items-center justify-center lg:justify-start gap-3">
-                        <EnvelopeIcon className="h-5 w-5" />
-                      <span>info@yachtmoment.com</span>
-                    </p>
-                    <p className="flex items-center justify-center lg:justify-start gap-3">
-                      <MapPinIcon className="h-5 w-5" />
-                      <span>Portorož Marina, Slovenia</span>
-                    </p>
-                  </div>
+                <div>
+                  <label htmlFor="message" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    className="w-full px-4 py-3 border border-black/50 rounded-md text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all"
+                    placeholder="Tell us about your desired journey..."
+                  ></textarea>
                 </div>
-                
-                <div className="text-center lg:text-left">
-                  <h3 className={`text-xl font-medium mb-6 ${playfairDisplaySC.className}`}>Operating Hours</h3>
-                  <div className="space-y-3">
-                    <p className="flex justify-between max-w-xs mx-auto lg:mx-0">
-                      <span>Monday - Friday</span>
-                      <span className="font-medium">9:00 - 18:00</span>
-                    </p>
-                    <p className="flex justify-between max-w-xs mx-auto lg:mx-0">
-                      <span>Saturday</span>
-                      <span className="font-medium">10:00 - 16:00</span>
-                    </p>
-                    <p className="flex justify-between max-w-xs mx-auto lg:mx-0">
-                      <span>Sunday</span>
-                      <span className="font-medium">By appointment</span>
-                    </p>
-                  </div>
+
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className={`w-full px-6 cursor-pointer py-3 border border-black rounded-md text-black bg-transparent hover:bg-black hover:text-white transition-colors duration-300 ${playfairDisplay.className} text-lg`}
+                >
+                  {isLoading ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+
+              <div className={`${playfair.className} mt-6 w-full max-w-md`}>
+                <h3 className={`text-xl font-medium mb-3 text-center ${playfairDisplaySC.className} text-black`}>Direct Contact</h3>
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-1 sm:gap-6 text-black">
+                  <p className="flex items-center gap-3">
+                    <PhoneIcon className="h-5 w-5 text-black" />
+                    <span>+386 40 123 456</span>
+                  </p>
+                  <p></p>
+                  <p className="flex items-center gap-3">
+                    <EnvelopeIcon className="h-5 w-5 text-black" />
+                    <span>info@yachtmoment.com</span>
+                  </p>
                 </div>
               </div>
             </div>

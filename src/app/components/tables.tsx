@@ -50,7 +50,7 @@ const Tables: React.FC = () => {
         <table className={`w-full text-sm ${playfair.className}`}>
           <thead>
             <tr>
-              <th colSpan={2} className="py-2 px-4 text-white text-2xlf font-normal border-b border-white/50">
+              <th colSpan={2} className="py-2 px-4 text-white text-2xl font-normal border-b border-white/50">
                 Accommodation
               </th>
             </tr>

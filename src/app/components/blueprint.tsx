@@ -83,7 +83,7 @@ export default function Blueprint() {
         </AnimatePresence>
       </div>
 
-      <div className="mt-10 flex items-center justify-center gap-4">
+      <div className="mt-10 flex flex-row items-center justify-center gap-4">
         <motion.button
           onClick={() => goToIndex((currentIndex - 1 + images.length) % images.length)}
           className={`p-2 rounded-full cursor-pointer transition-colors duration-200 ${playfair.className} bg-white/50 text-black hover:bg-white/60`}
@@ -108,7 +108,7 @@ export default function Blueprint() {
         <AnimatePresence mode="wait">
           <motion.div
             key={images[currentIndex].label}
-            className={`px-10 py-1 rounded-sm text-center w-70 text-3xl ${playfair.className} bg-transparent text-white`}
+            className={`px-10 py-1 rounded-sm text-center text-3xl ${playfair.className} bg-transparent text-white`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
