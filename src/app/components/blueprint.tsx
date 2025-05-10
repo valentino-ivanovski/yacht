@@ -53,7 +53,12 @@ export default function Blueprint() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  const goToIndex = (index) => {
+  interface ImageData {
+    src: string;
+    label: string;
+  }
+
+  const goToIndex = (index: number): void => {
     setCurrentIndex(index);
   };
 
