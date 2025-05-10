@@ -458,46 +458,19 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-navy text-cream py-16">
+      <footer className="bg-navy text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+          <div className="flex items-center justify-center -mt-4 mb-12">
             <div>
-              <h3 className={`text-xl font-medium mb-4 ${playfairDisplaySC.className}`}>Yacht Moment</h3>
-              <p className={`${playfair.className} text-cream/80`}>
+              <h3 className={`text-xl text-center font-medium ${playfairDisplaySC.className}`}>Yacht Moment</h3>
+              <p className={`${playfair.className} text-white/80 max-w-md text-center`}>
                 Luxury yacht charters in the Adriatic Sea, offering unforgettable experiences aboard the Greenline 48 Fly.
               </p>
             </div>
-            
-            <div>
-              <h4 className={`text-lg font-medium mb-4 ${playfairDisplaySC.className}`}>Services</h4>
-              <ul className={`space-y-2 ${playfair.className} text-cream/80`}>
-                <li><Link href="#services" className="hover:text-white transition-colors">Adriatic Charters</Link></li>
-                <li><Link href="#services" className="hover:text-white transition-colors">Luxury Transfers</Link></li>
-                <li><Link href="#services" className="hover:text-white transition-colors">Jet to Port</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className={`text-lg font-medium mb-4 ${playfairDisplaySC.className}`}>Information</h4>
-              <ul className={`space-y-2 ${playfair.className} text-cream/80`}>
-                <li><Link href="#about" className="hover:text-white transition-colors">About Us</Link></li>
-                <li><Link href="#yacht" className="hover:text-white transition-colors">Our Yacht</Link></li>
-                <li><Link href="#contact" className="hover:text-white transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className={`text-lg font-medium mb-4 ${playfairDisplaySC.className}`}>Legal</h4>
-              <ul className={`space-y-2 ${playfair.className} text-cream/80`}>
-                <li><Link href="#" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Cancellation Policy</Link></li>
-              </ul>
-            </div>
           </div>
           
-          <div className="pt-8 border-t border-cream/20">
-            <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="pt-12 border-t border-white/20">
+            <div className="flex flex-col md:flex-row text-center justify-between items-center">
               <p className={`${playfair.className} mb-4 md:mb-0`}>
                 © {new Date().getFullYear()} Yacht Moment. All rights reserved.
               </p>
