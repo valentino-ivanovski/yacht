@@ -27,7 +27,7 @@ const Tables: React.FC = () => {
 
   return (
     <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8 py-20">
-      <div className="w-full sm:w-1/2 bg-transparent rounded-lg overflow-hidden border border-white/70">
+      <div className="w-full bg-white/5 sm:w-1/2 bg-transparent rounded-lg overflow-hidden border border-white/70">
         <table className={`w-full text-sm ${playfair.className}`}>
           <thead>
             <tr>
@@ -46,11 +46,11 @@ const Tables: React.FC = () => {
           </tbody>
         </table>
       </div>
-      <div className="w-full sm:w-1/2 bg-transparent rounded-lg overflow-hidden border border-white/70">
+      <div className="w-full bg-white/5 sm:w-1/2 bg-transparent rounded-lg overflow-hidden border border-white/70">
         <table className={`w-full text-sm ${playfair.className}`}>
           <thead>
             <tr>
-              <th colSpan={2} className="py-2 px-4 text-white text-lg font-normal border-b border-white/50">
+              <th colSpan={2} className="py-2 px-4 text-white text-2xlf font-normal border-b border-white/50">
                 Accommodation
               </th>
             </tr>

@@ -9,6 +9,34 @@ import { useState, useEffect } from 'react';
 import Blueprint from "@/app/components/blueprint";
 import Tables from "@/app/components/tables";
 import Slideshow from "@/app/components/slideshow";
+import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import { FacebookIcon, InstagramIcon } from 'lucide-react';
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  const form = e.target as HTMLFormElement;
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(Object.fromEntries(formData)),
+    });
+
+    if (response.ok) {
+      alert('Message sent successfully!');
+      form.reset();
+    } else {
+      throw new Error('Failed to send message');
+    }
+  } catch (error) {
+    alert('Error sending message. Please try again later.');
+    console.error(error);
+  }
+};
 
 const playfairDisplaySC = Playfair_Display_SC({
   subsets: ['latin'],
@@ -107,7 +135,7 @@ export default function Home() {
 
       {/* Header */}
       <motion.header
-        className={`fixed top-0 w-full z-100 transition-all duration-500 ${
+        className={`fixed hidden top-0 w-full z-100 transition-all duration-500 ${
           (isInHeroSection && lastScrollY > 0) || isScrolledUp || !isVisible
           ? 'backdrop-blur-lg bg-white/100 text-black shadow-md'
           : 'bg-transparent text-white'
@@ -117,12 +145,12 @@ export default function Home() {
         transition={{ duration: 0.1 }}
       >
         <nav className="flex flex-col h-40 items-center justify-center gap-4 py-6">
-          <Link href="#about" className={`flex flex-col items-center justify-center ${playfairDisplaySC.className}`}>
+          <Link href="#services" className={`flex flex-col items-center justify-center ${playfairDisplaySC.className}`}>
             <p className="text-3xl sm:text-4xl">Yacht Moment</p>
             <p className="text-sm sm:text-lg">-ADRIATIC YACHT CHARTER-</p>
           </Link>
           <div id="threeItems" className={`flex justify-center text-md items-center gap-8 sm:gap-12 ${playfair.className} text-lg`}>
-          <Link href="#about" className="relative inline-block group" onClick={(e) => {e.preventDefault(); const target = document.querySelector('#about'); if (target) target.scrollIntoView({ behavior: 'smooth' });}}>Services</Link>
+          <Link href="#services" className="relative inline-block group" onClick={(e) => {e.preventDefault(); const target = document.querySelector('#services'); if (target) target.scrollIntoView({ behavior: 'smooth' });}}>Services</Link>
           <Link href="#yacht" className="relative inline-block group" onClick={(e) => {e.preventDefault(); const target = document.querySelector('#yacht'); if (target) target.scrollIntoView({ behavior: 'smooth' });}}>Greenline 48 Fly</Link>
           <Link href="#contact" className="relative inline-block group" onClick={(e) => {e.preventDefault(); const target = document.querySelector('#contact'); if (target) target.scrollIntoView({ behavior: 'smooth' });}}>Contact</Link>
         </div>
@@ -245,84 +273,326 @@ export default function Home() {
           </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="w-1/2 h-px absolute -my-20 bg-gray-300 opacity-40 left-1/2 transform -translate-x-1/2"></div>
-        <h1 className={`text-7xl leading-relaxed text-center mb-8 ${playfairDisplay.className}`}>Greenline 48 Fly</h1>
-            <p className={`text-xl leading-relaxed text-center mb-8 ${playfair.className}`}>
-            Yacht Moment is a premier luxury yacht charter
-             service offering a one-of-a-kind experience along
-              the Adriatic coast. We specialize in providing
-               bespoke journeys aboard the Greenline 48 FLY,
-              a state-of-the-art yacht that combines luxury,
-               comfort, and sustainability. Our mission is to
-                create unforgettable moments for our clients,
-                 offering personalized itineraries and impeccable
-                service. Whether you’re planning a short getaway
-                 or an extended adventure, Yacht Moment ensures 
-                 that every journey is tailored to your preferences,
-                  making each voyage truly exceptional.
-            </p>
-        <div className='flex flex-row items-center justify-center gap-12'>
-          <div className="flex flex-col items-center justify-center">
+      <section id="services" className="py-20 bg-navy">
+        <div className="w-1/2 h-px absolute -my-20 bg-gray-300 opacity-40 left-1/2 transform -translate-x-1/2"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className={`text-5xl md:text-6xl -mt-5 font-bold text-center mb-5 text-cream ${playfairDisplay.className}`}>
+            Our Services
+          </h2>
+          <p className={`text-xl leading-relaxed text-center mx-auto mb-8 w-9/10 italic text-cream ${playfair.className}`}>
+            Our company specializes in providing tailored luxury travel experiences across the Adriatic, offering private yacht charters, seamless A-to-B transfers between destinations, and custom jet-to-port journeys for direct access to your yacht.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Service 1 - Yacht Charter */}
+            <div className="bg-white rounded-lg p-6 flex flex-col items-center shadow-md h-full">
+              <div className="text-center">
+                <h3 className={`text-2xl font-bold mb-3 text-black ${playfairDisplaySC.className}`}>
+                  Luxury Adriatic Charter
+                </h3>
+                <p className={`text-gray-700 ${playfair.className} mb-4`}>
+                  Experience the Adriatic coast at your own pace with our fully customizable luxury yacht charters. 
+                </p>
+                
+                <div className={`w-full border-t border-gray-200 pt-4 ${playfair.className}`}>
+                  <h4 className="text-lg mb-2 text-black">Duration Options:</h4>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex justify-between">
+                      <span>Weekend Getaway</span>
+                      <span>€7,500 (3 days)</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Week Explorer</span>
+                      <span>€15,000 (7 days)</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Extended Voyage</span>
+                      <span>€25,000 (14 days)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Service 2 - A to B Transfers */}
+            <div className="bg-white rounded-lg p-6 flex flex-col items-center shadow-md h-full">
+              <div className="text-center">
+                <h3 className={`text-2xl font-bold mb-3 text-black ${playfairDisplaySC.className}`}>
+                  Luxury Transfers
+                </h3>
+                <p className={`text-gray-700 ${playfair.className} mb-4`}>
+                  Seamless point-to-point transfers offering a refined and comfortable journey between selected Adriatic destinations.
+                </p>
+                
+                <div className={`w-full border-t border-gray-200 pt-4 ${playfair.className}`}>
+                  <h4 className="text-lg mb-2 text-black">Transfer Options:</h4>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex justify-between">
+                      <span>Portorož → Rovinj</span>
+                      <span>€3,500</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Portorož → Hvar</span>
+                      <span>€4,200</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Custom Route</span>
+                      <span>Price on request</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Service 3 - Jet to Port */}
+            <div className="bg-white rounded-lg p-6 flex flex-col items-center shadow-md h-full">
+              <div className="text-center">
+                <h3 className={`text-2xl font-bold mb-3 text-black ${playfairDisplaySC.className}`}>
+                  Jet to Port
+                </h3>
+                <p className={`text-gray-700 ${playfair.className} mb-4`}>
+                  Enjoy seamless travel with our Luxury Custom Jet to Port Journeys, offering direct transfers from the airport to your yacht.
+                </p>
+                
+                <div className={`w-full border-t border-gray-200 pt-4 ${playfair.className}`}>
+                  <h4 className="text-lg mb-2 text-black">Service Includes:</h4>
+                  <ul className="space-y-2 text-sm text-center">
+                    <li className="flex text-black justify-center items-center ">
+                      <span className="mr-2">•</span>
+                      <span>Private airport transfer</span>
+                    </li>
+                    <li className="flex justify-center text-black items-start">
+                      <span className="mr-2">•</span>
+                      <span>Immediate yacht boarding</span>
+                    </li>
+                  </ul>
+                  <div className="mt-4 text-center text-black">
+                    <span className="text-sm">Starting from €5,000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <div className={`mb-2 transform -translate-y-8 max-w-2xl mx-auto text-cream ${playfair.className}`}>
+              <p className="text-lg">All charters include:</p>
+              <div className="flex justify-center gap-8 mt-4 text-md">
+                <span className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  Professional Skipper
+                </span>
+                <span className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  Luxury Amenities
+                </span>
+                <span className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  Tailored Itinerary
+                </span>
+              </div>
+            </div>
             
-          </div>
-          <div className="flex flex-col items-center justify-center">
-
-          </div>
-          <div className="flex flex-col items-center justify-center">
-
+            <Link
+              href="#contact"
+              className={`inline-block px-6 py-3 border border-white text-white rounded-sm hover:bg-white/20 transition-all duration-300 text-lg ${playfairDisplay.className}`}
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.querySelector('#contact');
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Reserve Your Luxury Experience
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Get in Touch</h2>
-        <div className="max-w-lg mx-auto">
-          <div className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-lg">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="w-full mt-2 p-3 rounded-md bg-cream border border-navy text-navy focus:outline-none focus:ring-2 focus:ring-blue-600"
-              />
+      <section id="contact" className="py-20 text-navy">
+        <div className="w-1/2 h-px absolute -my-18 bg-gray-300 opacity-40 left-1/2 transform -translate-x-1/2"></div>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className={`text-5xl md:text-6xl font-bold mb-4 ${playfairDisplay.className}`}>Contact Us</h2>
+            <p className={`text-xl ${playfair.className} italic max-w-2xl mx-auto`}>
+              Ready to embark on your luxury journey? Our team is standing by to craft your perfect yachting experience.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className}`}>Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:border-navy focus:ring-1 focus:ring-navy outline-none transition-all"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className}`}>Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:border-navy focus:ring-1 focus:ring-navy outline-none transition-all"
+                    placeholder="your@email.com"
+                  />
+                </div>
+              </div>
+              
+              <div className="relative">
+                <label htmlFor="service" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className}`}>Service Interest</label>
+                <div className="relative">
+                  <select
+                    id="service"
+                    name="service"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:border-navy focus:ring-1 focus:ring-navy outline-none appearance-none"
+                    required
+                  >
+                    <option value="">Select a service</option>
+                    <option value="charter">Luxury Custom Adriatic Charter</option>
+                    <option value="transfers">Luxury A to B Transfers</option>
+                    <option value="jet">Luxury Jet to Port Journeys</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <label htmlFor="message" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className}`}>Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:border-navy focus:ring-1 focus:ring-navy outline-none transition-all"
+                  placeholder="Tell us about your desired journey..."
+                ></textarea>
+              </div>
+              
+              <button
+                type="submit"
+                className={`w-full cursor-pointer px-6 py-4 rounded-sm text-white border hover:bg-white/30 transition-colors duration-300 ${playfairDisplay.className} text-lg`}>
+                Send Message
+              </button>
+            </form>
+
+            <div className="flex flex-col justify-center items-center lg:items-start lg:pl-12">
+              <div className={`${playfair.className} space-y-8 max-w-md w-full`}>
+                <div className="text-center lg:text-left">
+                  <h3 className={`text-xl font-medium mb-6 ${playfairDisplaySC.className}`}>Contact Information</h3>
+                  <div className="space-y-4">
+                    <p className="flex items-center justify-center lg:justify-start gap-3">
+                        <PhoneIcon className="h-5 w-5" />
+                      <span>+386 40 123 456</span>
+                    </p>
+                    <p className="flex items-center justify-center lg:justify-start gap-3">
+                        <EnvelopeIcon className="h-5 w-5" />
+                      <span>info@yachtmoment.com</span>
+                    </p>
+                    <p className="flex items-center justify-center lg:justify-start gap-3">
+                      <MapPinIcon className="h-5 w-5" />
+                      <span>Portorož Marina, Slovenia</span>
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="text-center lg:text-left">
+                  <h3 className={`text-xl font-medium mb-6 ${playfairDisplaySC.className}`}>Operating Hours</h3>
+                  <div className="space-y-3">
+                    <p className="flex justify-between max-w-xs mx-auto lg:mx-0">
+                      <span>Monday - Friday</span>
+                      <span className="font-medium">9:00 - 18:00</span>
+                    </p>
+                    <p className="flex justify-between max-w-xs mx-auto lg:mx-0">
+                      <span>Saturday</span>
+                      <span className="font-medium">10:00 - 16:00</span>
+                    </p>
+                    <p className="flex justify-between max-w-xs mx-auto lg:mx-0">
+                      <span>Sunday</span>
+                      <span className="font-medium">By appointment</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <label htmlFor="email" className="block text-lg">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="w-full mt-2 p-3 rounded-md bg-cream border border-navy text-navy focus:outline-none focus:ring-2 focus:ring-blue-600"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-lg">
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={5}
-                className="w-full mt-2 p-3 rounded-md bg-cream border border-navy text-navy focus:outline-none focus:ring-2 focus:ring-blue-600"
-              ></textarea>
-            </div>
-            <button className="w-full bg-blue-600 text-cream px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
-              Send Message
-            </button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-navy text-cream py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-lg">Yacht Moment © {new Date().getFullYear()}</p>
-          <p className="mt-2">Experience the Art of Luxury Yachting</p>
+      <footer className="bg-navy text-cream py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div>
+              <h3 className={`text-xl font-medium mb-4 ${playfairDisplaySC.className}`}>Yacht Moment</h3>
+              <p className={`${playfair.className} text-cream/80`}>
+                Luxury yacht charters in the Adriatic Sea, offering unforgettable experiences aboard the Greenline 48 Fly.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className={`text-lg font-medium mb-4 ${playfairDisplaySC.className}`}>Services</h4>
+              <ul className={`space-y-2 ${playfair.className} text-cream/80`}>
+                <li><Link href="#services" className="hover:text-white transition-colors">Adriatic Charters</Link></li>
+                <li><Link href="#services" className="hover:text-white transition-colors">Luxury Transfers</Link></li>
+                <li><Link href="#services" className="hover:text-white transition-colors">Jet to Port</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className={`text-lg font-medium mb-4 ${playfairDisplaySC.className}`}>Information</h4>
+              <ul className={`space-y-2 ${playfair.className} text-cream/80`}>
+                <li><Link href="#about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="#yacht" className="hover:text-white transition-colors">Our Yacht</Link></li>
+                <li><Link href="#contact" className="hover:text-white transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className={`text-lg font-medium mb-4 ${playfairDisplaySC.className}`}>Legal</h4>
+              <ul className={`space-y-2 ${playfair.className} text-cream/80`}>
+                <li><Link href="#" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Cancellation Policy</Link></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="pt-8 border-t border-cream/20">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className={`${playfair.className} mb-4 md:mb-0`}>
+                © {new Date().getFullYear()} Yacht Moment. All rights reserved.
+              </p>
+              <div className="flex space-x-6">
+                <Link href="#" aria-label="Instagram">
+                  <InstagramIcon className="w-5 h-5 hover:text-white transition-colors" />
+                </Link>
+                <Link href="#" aria-label="Facebook">
+                  <FacebookIcon className="w-5 h-5 hover:text-white transition-colors" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
