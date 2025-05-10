@@ -17,17 +17,17 @@ export const metadata: Metadata = {
     title: "Yacht Moment - Greenline 48 Flybridge Charter",
     description:
       "Discover the Greenline 48 Flybridge - luxury, hybrid innovation, and comfort combined in Greenline's premier Adriatic yacht charter experience.",
-    url: "https://yachtmoment.com", // Replace with your actual URL
+    url: "https://yachtmoment.com", 
     siteName: "Yacht Moment",
     images: [
       {
-        url: "https://yachtmoment.com/og-image.jpg", // Replace with your actual image
-        width: 1200,
-        height: 630,
+        url: "https://imgur.com/FREPuvc",
+        width: 1224,
+        height: 672,
         alt: "Greenline 48 Flybridge in the Adriatic Sea",
       },
     ],
-    locale: "en_US",
+    locale: "sl_SI",
     type: "website",
   },
   twitter: {
@@ -35,8 +35,11 @@ export const metadata: Metadata = {
     title: "Yacht Moment - Greenline 48 Flybridge Charter",
     description:
       "Discover the Greenline 48 Flybridge - luxury, hybrid innovation, and comfort combined in Greenline's premier Adriatic yacht charter experience.",
-    site: "@yachtmoment", // Optional: your Twitter/X handle
-    images: ["https://yachtmoment.com/og-image.jpg"], // Same image as Open Graph
+    images: ["https://imgur.com/FREPuvc"],
+  },
+  icons: {
+    icon: "svgs/icon.ico",
+    apple: "svgs/appleicon.png",
   },
 };
 

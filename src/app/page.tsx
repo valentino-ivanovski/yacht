@@ -176,6 +176,7 @@ export default function Home() {
               strokeWidth={1}
               stroke="currentColor"
               className="w-8 h-8 text-white"
+              aria-label="Scroll down"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
@@ -200,21 +201,21 @@ export default function Home() {
             <div className="flex flex-row justify-center items-center gap-3 sm:gap-8">
               <Image
               src="/svgs/1.svg"
-              alt="SVG 1"
+              alt="Diesel Drive Icon"
+              width={100}
+              height={100}
+              className="object-contain"
+              />
+              <Image
+              src="/svgs/3.svg?v2"
+              alt="Electric Drive Icon"
               width={100}
               height={100}
               className="object-contain"
               />
               <Image
               src="/svgs/2.svg"
-              alt="SVG 2"
-              width={100}
-              height={100}
-              className="object-contain"
-              />
-              <Image
-              src="/svgs/3.svg"
-              alt="SVG 3"
+              alt="Hybrid Drive Icon"
               width={100}
               height={100}
               className="object-contain"
