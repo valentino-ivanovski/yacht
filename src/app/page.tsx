@@ -147,7 +147,7 @@ export default function Home() {
           />
         </div>
         <div
-          className={`flex flex-col items-center sm:items-start justify-center sm:text-left text-center relative sm:z-5 z-50 px-4 transform lg:-translate-x-45 lg:-translate-y-0 sm:-translate-x-0 sm:-translate-y-0 md:-translate-x-0 md:-translate-y-0 xl:-translate-x-80 xl:-translate-y-0 ${playfairDisplay.className}`}
+          className={`flex flex-col items-center sm:items-start justify-center sm:text-left text-center relative px-4 transform lg:-translate-x-35 lg:-translate-y-0 sm:-translate-x-0 sm:-translate-y-0 md:-translate-x-0 md:-translate-y-0 xl:-translate-x-80 xl:-translate-y-0 ${playfairDisplay.className}`}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 transform text-white">
             Timeless <em className="italic">Dream</em> on <br />the Greenline 48 Fly
