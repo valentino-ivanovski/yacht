@@ -159,7 +159,7 @@ export default function Home() {
           </p>
           <Link
             href="#contact"
-            className="text-white z-30 px-4 py-2 backdrop-blur-sm hover:bg-white hover:text-black cursor-pointer text-lg border border-white rounded-sm transition-all duration-300"
+            className="text-black bg-white sm:bg-white shadow-lg hover:bg-white/90 text-black z-30 px-4 py-2 cursor-pointer text-lg rounded-sm transition-all duration-300"
             onClick={(e) => {
               e.preventDefault();
               const target = document.querySelector('#contact');
@@ -175,9 +175,9 @@ export default function Home() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              strokeWidth={1}
+              strokeWidth={1.3}
               stroke="currentColor"
-              className="w-8 h-8 text-white"
+              className="w-8 h-8 text-white/65"
               aria-label="Scroll down"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -241,7 +241,7 @@ export default function Home() {
                 href="https://www.greenlinehybrid.com/en/yacht/greenline-48-fly"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-white border px-6 py-3 border-white rounded-sm hover:bg-white cursor-pointer hover:text-black transition-color duration-300 text-lg ${playfairDisplay.className}`}>
+                className={`text-black px-6 py-3 rounded-sm hover:bg-white/90 cursor-pointer transition-color duration-300 bg-white shadow-lg text-lg ${playfairDisplay.className}`}>
                 Learn More About the 48 Fly
                 </Link>
             </div>
@@ -379,7 +379,7 @@ export default function Home() {
             
             <Link
               href="#contact"
-              className={`inline-block px-6 py-3 border border-white text-white rounded-sm hover:bg-white hover:text-black transition-all duration-300 text-lg ${playfairDisplay.className}`}
+              className={`inline-block text-black bg-white px-6 py-3 text-black shadow-lg rounded-sm hover:bg-white/80 transition-all duration-300 text-lg ${playfairDisplay.className}`}
               onClick={(e) => {
                 e.preventDefault();
                 const target = document.querySelector('#contact');
