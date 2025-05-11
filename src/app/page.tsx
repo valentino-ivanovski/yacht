@@ -149,9 +149,9 @@ export default function Home() {
           />
         </div>
         <div
-          className={`flex flex-col items-center sm:items-start justify-center sm:text-left text-center relative px-4 transform lg:-translate-x-35 lg:-translate-y-0 sm:-translate-x-0 sm:-translate-y-0 md:-translate-x-0 md:-translate-y-0 xl:-translate-x-80 xl:-translate-y-0 ${playfairDisplay.className}`}
+          className={`flex flex-col items-center sm:items-start justify-center sm:text-left text-center relative px-4 transform lg:-translate-x-35 lg:-translate-y-0 sm:-translate-x-0 sm:-translate-y-0 md:-translate-x-20 md:-translate-y-0 xl:-translate-x-50 xl:-translate-y-0 ${playfairDisplay.className}`}
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 transform text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl mb-6 transform text-white">
             Timeless <em className="italic">Dream</em> on <br />the Greenline 48 Fly
           </h1>
           <p className={`text-xl md:text-2xl mb-8 max-w-2xl text-white ${playfair.className}`}>
@@ -402,71 +402,71 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl transform -translate-y-5 p-5 max-w-xl mx-auto">
+            <div className="bg-white rounded-xl shadow-[0_3px_15px_-10px_rgba(0,0,0,0.6)] transform -translate-y-5 p-5 max-w-xl mx-auto">
             <div className="flex flex-col items-center">
-              <form className="space-y-6 w-full max-w-lg">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full px-4 py-3 border border-black/50 rounded-md text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all"
-                      placeholder="Name and Surname"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full px-4 py-3 border border-black/50 rounded-md text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                </div>
-
+              <form className="space-y-6 w-full max-w-lg" method="POST" action="https://formsubmit.co/valentino.ivanovski@icloud.com">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="message" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    required
-                    className="w-full px-4 py-3 border border-black/50 rounded-md text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all"
-                    placeholder="Tell us about your desired journey..."
-                  ></textarea>
+                <label htmlFor="name" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full px-4 py-3 border border-black/50 rounded-md text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all"
+                  placeholder="Name and Surname"
+                />
                 </div>
+                <div>
+                <label htmlFor="email" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-3 border border-black/50 rounded-md text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all"
+                  placeholder="your@email.com"
+                />
+                </div>
+              </div>
 
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className={`w-full px-6 cursor-pointer py-3 border border-black rounded-md text-black bg-transparent hover:bg-black hover:text-white transition-colors duration-300 ${playfairDisplay.className} text-lg`}
-                >
-                  {isLoading ? 'Sending...' : 'Send Message'}
-                </button>
+              <div>
+                <label htmlFor="message" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Message</label>
+                <textarea
+                id="message"
+                name="message"
+                rows={5}
+                required
+                className="w-full px-4 py-3 border border-black/50 rounded-md text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all"
+                placeholder="Tell us about your desired journey..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={`w-full px-6 cursor-pointer py-3 border border-black rounded-md text-black bg-transparent hover:bg-black hover:text-white transition-colors duration-300 ${playfairDisplay.className} text-lg`}
+              >
+                {isLoading ? 'Sending...' : 'Send Message'}
+              </button>
               </form>
 
               <div className={`${playfair.className} mt-6 w-full max-w-md`}>
-                <h3 className={`text-xl font-medium mb-3 text-center ${playfairDisplaySC.className} text-black`}>Direct Contact</h3>
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-1 sm:gap-6 text-black">
-                  <p className="flex items-center gap-3">
-                    <PhoneIcon className="h-5 w-5 text-black" />
-                    <span>+386 40 123 456</span>
-                  </p>
-                  <p></p>
-                    <p className="flex items-center gap-3">
-                    <EnvelopeIcon className="h-5 w-5 text-black" />
-                    <a href="mailto:info@yachtmoment.com" className="underline hover:underline">info@yachtmoment.com</a>
-                    </p>
-                </div>
+              <h3 className={`text-xl font-medium mb-3 text-center ${playfairDisplaySC.className} text-black`}>Direct Contact</h3>
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-1 sm:gap-6 text-black">
+                <p className="flex items-center gap-3">
+                <PhoneIcon className="h-5 w-5 text-black" />
+                <span>+386 40 123 456</span>
+                </p>
+                <p></p>
+                <p className="flex items-center gap-3">
+                <EnvelopeIcon className="h-5 w-5 text-black" />
+                <a href="mailto:info@yachtmoment.com" className="underline hover:underline">info@yachtmoment.com</a>
+                </p>
+              </div>
               </div>
             </div>
-          </div>
+            </div>
         </div>
       </section>
 

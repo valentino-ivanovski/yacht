@@ -29,9 +29,7 @@ const playfairDisplay = Playfair_Display({
 const images = [
   { src: '/images/flybridge.webp?v=2', label: 'Flybridge' },
   { src: '/images/maindeck.webp?v=2', label: 'Main deck' },
-  { src: '/images/lower-deckA1.webp?v=2', label: 'Lower deck A' },
-  { src: '/images/lower-deckB1.webp?v=2', label: 'Lower deck B' },
-  { src: '/images/lower-deckC.webp?v=2', label: 'Lower deck C' },
+  { src: '/images/lower-deckC.webp?v=2', label: 'Lower deck' },
 ];
 
 export default function Blueprint() {
