@@ -19,7 +19,7 @@ const Slideshow: React.FC = () => {
   const expandedImageRef = useRef<HTMLDivElement>(null);
 
   const images = Array.from({ length: 13 }, (_, i) => ({
-    src: `/images/slideshow/${i + 1}.webp`,
+    src: `/images/slideshow/${i + 1}.webp?v2`,
     alt: `Slideshow image ${i + 1} of Greenline 48 Fly`,
   }));
 
@@ -142,6 +142,7 @@ const Slideshow: React.FC = () => {
         <div
           id="yacht"
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-[110]"
+          onClick={() => setIsExpanded(false)}
           ref={expandedImageRef}
           tabIndex={0}
         >
