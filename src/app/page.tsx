@@ -461,7 +461,7 @@ export default function Home() {
                 <p></p>
                 <p className="flex items-center gap-3">
                 <EnvelopeIcon className="h-5 w-5 text-black" />
-                <a href="mailto:info@yachtmoment.com" className="underline hover:underline">info@yachtmoment.com</a>
+                <a href="mailto:anrobi@gmail.com" className="underline hover:underline">anrobi@gmail.com</a>
                 </p>
               </div>
               </div>
