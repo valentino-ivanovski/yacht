@@ -166,7 +166,7 @@ export default function Home() {
               if (target) target.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Reserve Your Journey
+            Begin Your Journey
           </Link>
         </div>
         {isInHeroSection && (
@@ -273,16 +273,16 @@ export default function Home() {
                   <h4 className="text-lg mb-2 text-black">Duration Options:</h4>
                   <ul className="space-y-2 text-sm text-gray-700">
                     <li className="flex justify-between">
-                      <span>Weekend Getaway</span>
-                      <span>€7,500 (3 days)</span>
+                      <span><span className='font-bold'>Weekend Getaway</span> (3 days)</span>
+                      <span>€</span>
                     </li>
                     <li className="flex justify-between">
-                      <span>Week Explorer</span>
-                      <span>€15,000 (7 days)</span>
+                      <span><span className='font-bold'>Week Explorer</span> (7 days)</span>
+                      <span>€€</span>
                     </li>
                     <li className="flex justify-between">
-                      <span>Extended Voyage</span>
-                      <span>€25,000 (14 days)</span>
+                      <span><span className='font-bold'>Extended Voyage</span> (14 days)</span>
+                      <span>€€€</span>
                     </li>
                   </ul>
                 </div>
@@ -304,11 +304,11 @@ export default function Home() {
                   <ul className="space-y-2 text-sm text-gray-700">
                     <li className="flex justify-between">
                       <span>Portorož → Rovinj</span>
-                      <span>€3,500</span>
+                      <span>€</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Portorož → Hvar</span>
-                      <span>€4,200</span>
+                      <span>€€</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Custom Route</span>
@@ -342,7 +342,7 @@ export default function Home() {
                     </li>
                   </ul>
                   <div className="mt-4 text-center text-black">
-                    <span className="text-sm">Starting from €5,000</span>
+                    <span className="text-sm">Price on request</span>
                   </div>
                 </div>
               </div>
@@ -461,7 +461,7 @@ export default function Home() {
                 <p></p>
                 <p className="flex items-center gap-3">
                 <EnvelopeIcon className="h-5 w-5 text-black" />
-                <a href="mailto:anrobi@gmail.com" className="underline hover:underline">anrobi@gmail.com</a>
+                <a href="mailto:yachtmoment@gmail.com" className="underline hover:underline">yachtmoment@gmail.com</a>
                 </p>
               </div>
               </div>
