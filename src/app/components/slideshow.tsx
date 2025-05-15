@@ -14,6 +14,7 @@ const playfair = Playfair({
 
 const Slideshow: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const expandedImageRef = useRef<HTMLDivElement>(null);
 
@@ -22,16 +23,10 @@ const Slideshow: React.FC = () => {
     alt: `Slideshow image ${i + 1} of Greenline 48 Fly`,
   }));
 
-  // Preload images
-  useEffect(() => {
-    images.forEach((image) => {
-      const img = new window.Image();
-      img.src = image.src;
-    });
-  }, []);
-
   const goToIndex = (index: number) => {
     const newIndex = (index + images.length) % images.length;
+    const dir = index > currentIndex ? 1 : -1;
+    setDirection(dir);
     setCurrentIndex(newIndex);
   };
 
@@ -68,37 +63,38 @@ const Slideshow: React.FC = () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     }
-    return () => {
+        return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
   }, [isExpanded, currentIndex]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto pb-10">
+    <div className="relative w-full  max-w-4xl mx-auto pb-10">
       {/* Main Slideshow */}
-      <div className="relative h-110 overflow-hidden rounded-sm shadow-lg">
-        <AnimatePresence initial={false}>
+      <div className="relative h-115 overflow-hidden rounded-sm shadow-lg">
+        <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
-            key={images[currentIndex].src}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            key={currentIndex}
+            custom={direction}
+            initial={{ opacity: 0, x: direction > 0 ? 40 : -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             className="absolute inset-0"
-            style={{ zIndex: 10 - currentIndex }}
           >
             <Image
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
               width={1200}
               height={800}
-              priority={currentIndex === 0}
+              loading="lazy"
               onClick={() => setIsExpanded(true)}
               className="cursor-pointer object-cover w-full h-full"
             />
           </motion.div>
         </AnimatePresence>
+
         {/* Left Arrow */}
         <button
           onClick={() => goToIndex(currentIndex - 1)}
@@ -150,15 +146,15 @@ const Slideshow: React.FC = () => {
           ref={expandedImageRef}
           tabIndex={0}
         >
-          <AnimatePresence initial={false}>
+          <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
-              key={images[currentIndex].src}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className="absolute inset-0 flex items-center justify-center"
-              style={{ zIndex: 10 - currentIndex }}
+              key={currentIndex}
+              custom={direction}
+              initial={{ opacity: 0, x: direction > 0 ? 40 : -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="relative max-w-4xl w-full h-[80vh]"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
@@ -166,7 +162,6 @@ const Slideshow: React.FC = () => {
                 alt={images[currentIndex].alt}
                 fill
                 className="object-contain"
-                priority={true}
                 onClick={() => setIsExpanded(false)}
               />
             </motion.div>
