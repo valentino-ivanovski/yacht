@@ -72,7 +72,7 @@ const Slideshow: React.FC = () => {
   return (
     <div className="relative w-full  max-w-4xl mx-auto pb-10">
       {/* Main Slideshow */}
-      <div className="relative h-115 overflow-hidden rounded-sm shadow-lg">
+      <div className="relative h-96 sm:h-115 overflow-hidden rounded-sm shadow-lg">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             
