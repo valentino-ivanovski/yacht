@@ -86,6 +86,7 @@ const Slideshow: React.FC = () => {
               width={1200}
               height={800}
               priority={true}
+              quality={100}
               onClick={() => setIsExpanded(true)}
               className="cursor-pointer object-cover w-full h-full"
             />
