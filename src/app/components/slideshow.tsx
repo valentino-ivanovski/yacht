@@ -75,13 +75,7 @@ const Slideshow: React.FC = () => {
       <div className="relative h-115 overflow-hidden rounded-sm shadow-lg">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
-            key={currentIndex}
-            custom={direction}
-            initial={{ opacity: 0, x: direction > 0 ? 40 : -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="absolute inset-0"
+            
           >
             <Image
               src={images[currentIndex].src}
@@ -148,12 +142,7 @@ const Slideshow: React.FC = () => {
         >
           <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
-              key={currentIndex}
-              custom={direction}
-              initial={{ opacity: 0, x: direction > 0 ? 40 : -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
+              
               className="relative max-w-4xl w-full h-[80vh]"
               onClick={(e) => e.stopPropagation()}
             >

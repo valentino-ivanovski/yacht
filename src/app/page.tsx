@@ -471,30 +471,23 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-navy text-white py-16">
+      <footer className="bg-navy text-white py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center -mt-4 mb-12">
             <div>
-              <h3 className={`text-xl text-center font-medium ${playfairDisplaySC.className}`}>Yacht Moment</h3>
+              <h3 className={`text-xl text-center pb-5 pt-2 font-medium ${playfairDisplaySC.className}`}>Yacht Moment</h3>
               <p className={`${playfair.className} text-white/80 max-w-md text-center`}>
                 Luxury yacht charters in the Adriatic Sea, offering unforgettable experiences aboard the Greenline 48 Fly.
               </p>
             </div>
           </div>
           
-          <div className="pt-12 border-t border-white/20">
-            <div className="flex flex-col md:flex-row text-center justify-between items-center">
-              <p className={`${playfair.className} mb-4 md:mb-0`}>
+          <div className="pt-10 border-t border-white/20">
+            <div className="flex flex-col md:flex-col text-center justify-center items-center">
+              <p className={`${playfair.className}`}>
                 © {new Date().getFullYear()} Yacht Moment. All rights reserved.
               </p>
-              <div className="flex space-x-6">
-                <Link href="#" aria-label="Facebook">
-                  <FaFacebook className="w-5 h-5 hover:text-white transition-colors" />
-                </Link>
-                <Link href="#" aria-label="Instagram">
-                  <FaInstagram className="w-5 h-5 hover:text-white transition-colors" />
-                </Link>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -507,7 +500,7 @@ export default function Home() {
           className="inline-flex items-center text-gray-700 hover:text-black transition"
         >
           <FaGithub className="mr-2" />
-          Made by Valentino Ivanovski
+          Website by Valentino Ivanovski
         </a>
       </div>
     </div>
