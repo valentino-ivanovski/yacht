@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Playfair } from 'next/font/google';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const playfair = Playfair({
   subsets: ['latin'],
@@ -63,20 +62,18 @@ const Slideshow: React.FC = () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     }
-        return () => {
+    return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
   }, [isExpanded, currentIndex]);
 
   return (
-    <div className="relative w-full  max-w-4xl mx-auto pb-10">
+    <div className="relative w-full max-w-4xl mx-auto pb-10">
       {/* Main Slideshow */}
       <div className="relative h-96 sm:h-115 overflow-hidden rounded-sm shadow-lg">
-        <AnimatePresence initial={false} custom={direction} mode="wait">
-          <motion.div
-            
-          >
+        <>
+          <div className="absolute inset-0">
             <Image
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
@@ -86,8 +83,8 @@ const Slideshow: React.FC = () => {
               onClick={() => setIsExpanded(true)}
               className="cursor-pointer object-cover w-full h-full"
             />
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        </>
 
         {/* Left Arrow */}
         <button
@@ -140,9 +137,8 @@ const Slideshow: React.FC = () => {
           ref={expandedImageRef}
           tabIndex={0}
         >
-          <AnimatePresence initial={false} custom={direction} mode="wait">
-            <motion.div
-              
+          <>
+            <div
               className="relative max-w-4xl w-full h-[80vh]"
               onClick={(e) => e.stopPropagation()}
             >
@@ -153,8 +149,8 @@ const Slideshow: React.FC = () => {
                 className="object-contain"
                 onClick={() => setIsExpanded(false)}
               />
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          </>
 
           {/* Left Arrow in Expanded */}
           <button
