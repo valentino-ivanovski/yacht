@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 import { Inter } from 'next/font/google'
  
@@ -59,6 +60,7 @@ export default function RootLayout({
         className={`${inter.className} ${inter.className} antialiased`}
       >
         {children}
+        <Analytics/>
       </body>
     </html>
   );
