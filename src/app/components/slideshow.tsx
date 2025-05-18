@@ -146,6 +146,7 @@ const Slideshow: React.FC = () => {
                 src={images[currentIndex].src}
                 alt={images[currentIndex].alt}
                 fill
+                quality={100}
                 className="object-contain"
                 onClick={() => setIsExpanded(false)}
               />

@@ -113,7 +113,7 @@ export default function Home() {
       <motion.header
         className={`fixed top-0 w-full z-100 transition-all duration-500 ${
           (isInHeroSection && lastScrollY > 0) || isScrolledUp || !isVisible
-          ? 'backdrop-blur-lg bg-white/100 text-black shadow-md'
+          ? 'backdrop-blur-md bg-black/15 text-white'
           : 'bg-transparent text-white'
         }`}
         initial={{ y: 0 }}
