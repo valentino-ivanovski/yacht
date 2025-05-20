@@ -408,7 +408,7 @@ export default function Home() {
 
             <div className="bg-white rounded-xl shadow-[0_3px_15px_-10px_rgba(0,0,0,0.6)] transform -translate-y-5 p-5 max-w-xl mx-auto">
             <div className="flex flex-col items-center">
-              <form className="space-y-6 w-full max-w-lg" method="POST" action="https://formsubmit.co/valentino.ivanovski@icloud.com">
+              <form className="space-y-6 w-full max-w-lg" method="POST" action="https://formsubmit.co/tinoitaly@yahoo.com">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                 <label htmlFor="name" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Name</label>
