@@ -206,7 +206,7 @@ export default function Home() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/*title*/}
             <h3 className={`text-3xl md:text-4xl transform -translate-x-1 translate-y-2 font-medium text-center ${windSong.className}`}>The Greenline</h3>
-            <h2 className={`text-6xl md:text-7xl font-bold text-center mb-8 ${playfairDisplay.className}`}>∙ 48 FLY ∙</h2>
+            <h2 className={`text-6xl md:text-7xl font-bold text-center mb-8 ${playfair.className}`}>∙ 48 FLY ∙</h2>
               <p className={`text-xl leading-relaxed text-center mx-auto mb-8 w-9/10 sm:w-1/2 ${playfair.className}`}>
               The Greenline 48 Fly blends innovation, elegance, and sustainability. As Greenline’s flagship model, it features next-gen hybrid propulsion, refined interiors, and super performance, setting a new benchmark in luxury yachting.
               </p>
@@ -255,7 +255,7 @@ export default function Home() {
       <section id="services" className="py-20 bg-navy">
         <div className="w-1/2 h-px absolute -my-20 bg-gray-300 opacity-40 left-1/2 transform -translate-x-1/2"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className={`text-5xl md:text-6xl -mt-5 font-bold text-center mb-5 text-cream ${playfairDisplay.className}`}>
+          <h2 className={`text-6xl md:text-6xl -mt-5 font-bold text-center mb-5 text-cream ${playfair.className}`}>
             Our Services
           </h2>
           <p className={`text-xl leading-relaxed text-center mx-auto mb-8 w-9/10 text-cream ${playfair.className}`}>
@@ -266,7 +266,7 @@ export default function Home() {
             {/* Service 1 - Yacht Charter */}
             <div className="bg-white rounded-lg p-6 flex flex-col items-center shadow-md h-full">
               <div className="text-center">
-                <h3 className={`text-2xl font-bold mb-3 text-black ${playfairDisplaySC.className}`}>
+                <h3 className={`text-3xl font-bold mb-3 text-black ${playfair.className}`}>
                   Luxury Adriatic Charter
                 </h3>
                 <p className={`text-gray-700 ${playfair.className} mb-4`}>
@@ -296,7 +296,7 @@ export default function Home() {
             {/* Service 2 - A to B Transfers */}
             <div className="bg-white rounded-lg p-6 flex flex-col items-center shadow-md h-full">
               <div className="text-center">
-                <h3 className={`text-2xl font-bold mb-3 text-black ${playfairDisplaySC.className}`}>
+                <h3 className={`text-3xl font-bold mb-3 text-black ${playfair.className}`}>
                   Luxury Transfers
                 </h3>
                 <p className={`text-gray-700 ${playfair.className} mb-4`}>
@@ -326,7 +326,7 @@ export default function Home() {
             {/* Service 3 - Jet to Port */}
             <div className="bg-white rounded-lg p-6 flex flex-col items-center shadow-md h-full">
               <div className="text-center">
-                <h3 className={`text-2xl font-bold mb-3 text-black ${playfairDisplaySC.className}`}>
+                <h3 className={`text-3xl font-bold mb-3 text-black ${playfair.className}`}>
                   Jet to Port
                 </h3>
                 <p className={`text-gray-700 ${playfair.className} mb-4`}>
@@ -400,7 +400,7 @@ export default function Home() {
       <section id="contact" className="pb-15 pt-15 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className={`text-5xl md:text-6xl font-bold mb-4 ${playfairDisplay.className} text-black`}>Contact Us</h2>
+            <h2 className={`text-5xl md:text-6xl font-bold mb-4 ${playfair.className} text-black`}>Contact Us</h2>
             <p className={`text-xl ${playfair.className} max-w-2xl mx-auto text-black`}>
               Ready to embark on your luxury journey? Our team is standing by to craft your perfect yachting experience.
             </p>
