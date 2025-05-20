@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Playfair_Display_SC, Playfair, Playfair_Display } from 'next/font/google';
@@ -13,6 +13,7 @@ import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline
 import { FaGithub } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { ChevronDown } from "lucide-react"
 
 const playfairDisplaySC = Playfair_Display_SC({
   subsets: ['latin'],
@@ -93,6 +94,9 @@ export default function Home() {
     }
   }, [imagesLoaded, startTime]);
 
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [selectedService, setSelectedService] = useState("")
+
   return (
     <div className="min-h-screen text-white">
       {/* Loading Screen */}
@@ -113,7 +117,7 @@ export default function Home() {
       <motion.header
         className={`fixed top-0 w-full z-100 transition-all duration-500 ${
           (isInHeroSection && lastScrollY > 0) || isScrolledUp || !isVisible
-          ? 'backdrop-blur-md bg-black/15 text-white'
+          ? 'backdrop-blur-md bg-white text-black'
           : 'bg-transparent text-white'
         }`}
         initial={{ y: 0 }}
@@ -190,7 +194,7 @@ export default function Home() {
       <section className='pt-25'>
                 <div className="w-1/3 h-px absolute -my-11 bg-gray-300 opacity-40 left-1/2 transform -translate-x-1/2"></div>
         <div className='flex items-center mb-3 mx-auto max-w-7xl justify-center'>
-          <p className={`text-xl leading-relaxed italic w-9/10 sm:w-1/2 text-center mb-8 ${playfair.className}`}>
+          <p className={`text-xl leading-relaxed w-9/10 sm:w-1/2 text-center mb-8 ${playfair.className}`}>
           Yacht Moment is a premier luxury yacht charter service offering a one-of-a-kind experience along the Adriatic coast. We specialize in providing bespoke journeys aboard the <Link href="#yacht" onClick={(e) => { e.preventDefault(); const target = document.querySelector('#yacht'); if (target) target.scrollIntoView({ behavior: 'smooth' }); }}>Greenline 48 FLY</Link>, a state-of-the-art yacht that combines luxury, comfort, and sustainability.
           </p>
         </div>
@@ -203,7 +207,7 @@ export default function Home() {
             {/*title*/}
             <h3 className={`text-3xl md:text-4xl transform -translate-x-1 translate-y-2 font-medium text-center ${windSong.className}`}>The Greenline</h3>
             <h2 className={`text-6xl md:text-7xl font-bold text-center mb-8 ${playfairDisplay.className}`}>∙ 48 FLY ∙</h2>
-              <p className={`text-xl leading-relaxed text-center mx-auto mb-8 w-9/10 sm:w-1/2 italic ${playfair.className}`}>
+              <p className={`text-xl leading-relaxed text-center mx-auto mb-8 w-9/10 sm:w-1/2 ${playfair.className}`}>
               The Greenline 48 Fly blends innovation, elegance, and sustainability. As Greenline’s flagship model, it features next-gen hybrid propulsion, refined interiors, and super performance, setting a new benchmark in luxury yachting.
               </p>
             <div className="flex items-center transform -translate-y-10 justify-center px-10 pt-6">
@@ -254,7 +258,7 @@ export default function Home() {
           <h2 className={`text-5xl md:text-6xl -mt-5 font-bold text-center mb-5 text-cream ${playfairDisplay.className}`}>
             Our Services
           </h2>
-          <p className={`text-xl leading-relaxed text-center mx-auto mb-8 w-9/10 italic text-cream ${playfair.className}`}>
+          <p className={`text-xl leading-relaxed text-center mx-auto mb-8 w-9/10 text-cream ${playfair.className}`}>
             Our company specializes in providing tailored luxury travel experiences across the Adriatic, offering private yacht charters, seamless A-to-B transfers between destinations, and custom jet-to-port journeys for direct access to your yacht.
           </p>
           
@@ -271,18 +275,18 @@ export default function Home() {
                 
                 <div className={`w-full border-t border-gray-200 pt-4 ${playfair.className}`}>
                   <h4 className="text-lg mb-2 text-black">Duration Options:</h4>
-                  <ul className="space-y-2 text-sm text-gray-700">
+                  <ul className="space-y-2 text-md text-gray-700">
                     <li className="flex justify-between">
                       <span><span className='font-bold'>Weekend Getaway</span> (3 days)</span>
-                      <span>€</span>
+                      <span>from 6000€</span>
                     </li>
                     <li className="flex justify-between">
                       <span><span className='font-bold'>Week Explorer</span> (7 days)</span>
-                      <span>€€</span>
+                      <span>from 20,000€</span>
                     </li>
                     <li className="flex justify-between">
                       <span><span className='font-bold'>Extended Voyage</span> (14 days)</span>
-                      <span>€€€</span>
+                      <span>Price on Request</span>
                     </li>
                   </ul>
                 </div>
@@ -301,14 +305,14 @@ export default function Home() {
                 
                 <div className={`w-full border-t border-gray-200 pt-4 ${playfair.className}`}>
                   <h4 className="text-lg mb-2 text-black">Transfer Options:</h4>
-                  <ul className="space-y-2 text-sm text-gray-700">
+                  <ul className="space-y-2 text-md text-gray-700">
                     <li className="flex justify-between">
                       <span>Portorož → Rovinj</span>
-                      <span>€</span>
+                      <span>from 2000€</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Portorož → Hvar</span>
-                      <span>€€</span>
+                      <span>from 8000€</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Custom Route</span>
@@ -331,7 +335,7 @@ export default function Home() {
                 
                 <div className={`w-full border-t border-gray-200 pt-4 ${playfair.className}`}>
                   <h4 className="text-lg mb-2 text-black">Service Includes:</h4>
-                  <ul className="space-y-2 text-sm text-center">
+                  <ul className="space-y-2 text-md text-center">
                     <li className="flex text-black justify-center items-center ">
                       <span className="mr-2">•</span>
                       <span>Private airport transfer</span>
@@ -342,7 +346,7 @@ export default function Home() {
                     </li>
                   </ul>
                   <div className="mt-4 text-center text-black">
-                    <span className="text-sm">Price on request</span>
+                    <span className="text-md">Price on request</span>
                   </div>
                 </div>
               </div>
@@ -397,7 +401,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className={`text-5xl md:text-6xl font-bold mb-4 ${playfairDisplay.className} text-black`}>Contact Us</h2>
-            <p className={`text-xl ${playfair.className} italic max-w-2xl mx-auto text-black`}>
+            <p className={`text-xl ${playfair.className} max-w-2xl mx-auto text-black`}>
               Ready to embark on your luxury journey? Our team is standing by to craft your perfect yachting experience.
             </p>
           </div>
@@ -430,6 +434,51 @@ export default function Home() {
                 </div>
               </div>
 
+              <div className="relative">
+                <label htmlFor="service" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>
+                  Service
+                </label>
+
+                <button
+                  type="button"
+                  onClick={() => setDropdownOpen((prev) => !prev)}
+                  className="w-full px-4 py-3 border border-black/50 rounded-md text-left text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all flex justify-between items-center"
+                >
+                  {selectedService || "Select a service"}
+                  <ChevronDown className={`ml-2 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                {/* Hidden input so form submission includes service */}
+                <input type="hidden" name="service" value={selectedService} />
+
+                <AnimatePresence>
+                  {dropdownOpen && (
+                    <motion.ul
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute z-10 mt-2 w-full text-black bg-white border border-black/50 rounded-md shadow-lg"
+                    >
+                      {["Luxury Adriatic Charter", "Luxury Transfer", "Jet To Port"].map((service) => (
+                        <li key={service}>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedService(service)
+                              setDropdownOpen(false)
+                            }}
+                            className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors"
+                          >
+                            {service}
+                          </button>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <div>
                 <label htmlFor="message" className={`block mb-2 text-sm uppercase tracking-wider ${playfair.className} text-black`}>Message</label>
                 <textarea
@@ -450,21 +499,6 @@ export default function Home() {
                 {isLoading ? 'Sending...' : 'Send Message'}
               </button>
               </form>
-
-              <div className={`${playfair.className} mt-6 w-full max-w-md`}>
-              <h3 className={`text-xl font-medium mb-3 text-center ${playfairDisplaySC.className} text-black`}>Direct Contact</h3>
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-1 sm:gap-6 text-black">
-                <p className="flex items-center gap-3">
-                <PhoneIcon className="h-5 w-5 text-black" />
-                <span>+386 40 123 456</span>
-                </p>
-                <p></p>
-                <p className="flex items-center gap-3">
-                <EnvelopeIcon className="h-5 w-5 text-black" />
-                <a href="mailto:yachtmoment@gmail.com" className="underline hover:underline">yachtmoment@gmail.com</a>
-                </p>
-              </div>
-              </div>
             </div>
             </div>
         </div>
@@ -476,7 +510,7 @@ export default function Home() {
           <div className="flex items-center justify-center -mt-4 mb-12">
             <div>
               <h3 className={`text-xl text-center pb-5 pt-2 font-medium ${playfairDisplaySC.className}`}>Yacht Moment</h3>
-              <p className={`${playfair.className} text-white/80 max-w-md text-center`}>
+              <p className={`${playfair.className} text-white max-w-md text-center`}>
                 Luxury yacht charters in the Adriatic Sea, offering unforgettable experiences aboard the Greenline 48 Fly.
               </p>
             </div>
