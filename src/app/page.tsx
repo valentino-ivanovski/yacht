@@ -449,7 +449,14 @@ export default function Home() {
                 </button>
 
                 {/* Hidden input so form submission includes service */}
-                <input type="hidden" name="service" value={selectedService} />
+                <input
+                  type="text"
+                  name="service"
+                  value={selectedService}
+                  readOnly
+                  tabIndex={-1}
+                  style={{ display: 'none' }}
+                />
 
                 <AnimatePresence>
                   {dropdownOpen && (
