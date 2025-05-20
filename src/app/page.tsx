@@ -156,7 +156,7 @@ export default function Home() {
           className={`flex flex-col items-center sm:items-start justify-center sm:text-left text-center relative px-4 transform lg:-translate-x-35 lg:-translate-y-0 sm:-translate-x-0 sm:-translate-y-0 md:-translate-x-20 md:-translate-y-0 xl:-translate-x-50 xl:-translate-y-0 ${playfairDisplay.className}`}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl mb-6 transform text-white">
-            Timeless <em className="italic">Dream</em> on <br />the Greenline 48 Fly
+            Timeless <em className="">Dream</em> on <br />the Greenline 48 Fly
           </h1>
           <p className={`text-xl md:text-2xl mb-8 max-w-2xl text-white ${playfair.className}`}>
             Experience unparalleled elegance with Yacht Moment, where sophistication meets the sea.
