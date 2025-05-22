@@ -277,8 +277,8 @@ export default function Home() {
                   <h4 className="text-lg mb-2 text-black">Duration Options:</h4>
                   <ul className="space-y-2 text-md text-gray-700">
                     <li className="flex justify-between">
-                      <span><span className='font-bold'>Weekend Getaway</span> (3 days)</span>
-                      <span>from 6000€</span>
+                      <span><span className='font-bold'>Weekend Getaway</span> (2 days)</span>
+                      <span>from 6,000€</span>
                     </li>
                     <li className="flex justify-between">
                       <span><span className='font-bold'>Week Explorer</span> (7 days)</span>
@@ -308,11 +308,11 @@ export default function Home() {
                   <ul className="space-y-2 text-md text-gray-700">
                     <li className="flex justify-between">
                       <span>Portorož → Rovinj</span>
-                      <span>from 2000€</span>
+                      <span>from 2,000€</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Portorož → Hvar</span>
-                      <span>from 8000€</span>
+                      <span>from 8,000€</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Custom Route</span>
@@ -335,19 +335,19 @@ export default function Home() {
                 
                 <div className={`w-full border-t border-gray-200 pt-4 ${playfair.className}`}>
                   <h4 className="text-lg mb-2 text-black">Service Includes:</h4>
-                  <ul className="space-y-2 text-md text-center">
-                    <li className="flex text-black justify-center items-center ">
+                  <ul className="space-y-2 text-md text-center text-gray-700">
+                    <li className="flex justify-center text-md items-center ">
                       <span className="mr-2">•</span>
                       <span>Private airport transfer</span>
                     </li>
-                    <li className="flex justify-center text-black items-start">
+                    <li className="flex justify-center items-start">
                       <span className="mr-2">•</span>
                       <span>Immediate yacht boarding</span>
                     </li>
+                    <li className="flex justify-center items-start">
+                      <span>Price on request</span>
+                    </li>
                   </ul>
-                  <div className="mt-4 text-center text-black">
-                    <span className="text-md">Price on request</span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -444,7 +444,9 @@ export default function Home() {
                   onClick={() => setDropdownOpen((prev) => !prev)}
                   className="w-full px-4 py-3 border border-black/50 rounded-md text-left text-black placeholder-gray-500 focus:ring-1 focus:ring-black focus:border-black/60 outline-none transition-all flex justify-between items-center"
                 >
-                  {selectedService || "Select a service"}
+                  <span className={selectedService ? "text-black" : "text-gray-500"}>
+                    {selectedService || "Select a service"}
+                  </span>
                   <ChevronDown className={`ml-2 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
                 </button>
 
