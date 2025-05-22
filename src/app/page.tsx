@@ -535,17 +535,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    <div className="bg-gray-100 flex items-center justify-center border-gray-200 py-3 text-center text-sm">
-        <a
-          href="https://github.com/valentino-ivanovski"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-gray-700 hover:text-black transition"
-        >
-          <FaGithub className="mr-2" />
-          Website by Valentino Ivanovski
-        </a>
-      </div>
     </div>
   );
 }
