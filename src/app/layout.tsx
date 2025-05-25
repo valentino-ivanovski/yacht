@@ -42,8 +42,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/svgs/icon.ico",
     apple: "/svgs/appleicon.png",
-  },
-  themeColor: "#ffffff", // Ensures Safari window is white
+  }
 };
 
 export default function RootLayout({
@@ -56,6 +55,7 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/images/svgs/icon.ico" />
         <link rel="apple-touch-icon" href="/images/svgs/appleicon.png" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <body
         className={`${inter.className} ${inter.className} antialiased`}
