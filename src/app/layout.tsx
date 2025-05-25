@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     icon: "/svgs/icon.ico",
     apple: "/svgs/appleicon.png",
   },
+  themeColor: "#ffffff", // Ensures Safari window is white
 };
 
 export default function RootLayout({
